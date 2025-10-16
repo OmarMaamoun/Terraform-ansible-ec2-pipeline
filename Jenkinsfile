@@ -67,7 +67,7 @@ pipeline {
                 sh """
                 echo "[ec2]" > ansible/inventory
                 echo "${EC2_IP} ansible_user=ec2-user ansible_ssh_private_key_file=/root/.ssh/rsa.pem" >> ansible/inventory
-                cat ansible/inventory  // Show inventory file in Jenkins logs
+                cat ansible/inventory 
                 """
             }
         }
