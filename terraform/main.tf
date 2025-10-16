@@ -30,7 +30,7 @@ resource "aws_security_group" "allow_ssh" {
 resource "aws_instance" "my_ec2" {
   ami                         = "ami-09b98de4ddf2fb239"  
   instance_type               = "t3.micro"
-  key_name                    = "jenkins-key" 
+  key_name                    = "rsa" 
   subnet_id                   = "subnet-017c7f031b62ab917"  
   vpc_security_group_ids      = [aws_security_group.allow_ssh.id]
   associate_public_ip_address = true  
