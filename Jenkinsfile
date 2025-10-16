@@ -65,8 +65,8 @@ pipeline {
                 echo "=== Creating Ansible Inventory File ==="
                 // Create or overwrite the inventory file dynamically with the EC2 IP
                 sh """
-                echo "[ec2]" > ansible/inventory
-                echo "${EC2_IP} ansible_user=ec2-user ansible_ssh_private_key_file=/var/jenkins_home/.ssh/rsa.pem" >> ansible/inventory
+                echo "[ubuntu]" > ansible/inventory
+                echo "${EC2_IP} ansible_user=ubuntu ansible_ssh_private_key_file=/var/jenkins_home/.ssh/rsa.pem" >> ansible/inventory
                 cat ansible/inventory 
                 """
             }
