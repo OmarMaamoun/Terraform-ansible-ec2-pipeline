@@ -77,8 +77,13 @@ pipeline {
             steps {
                 echo "=== Running Ansible Playbook on EC2 ==="
                 dir('ansible') { // Move into ansible directory
-                    // Run the Ansible playbook using the generated inventory file
-                    sh 'ansible-playbook -i inventory playbook.yml'
+                    //tells Ansible to ignore host key verification.
+                    withEnv(['ANSIBLE_HOST_KEY_CHECKING=False']) {
+                        // Run the Ansible playbook using the generated inventory file
+                        sh 'ansible-playbook -i inventory playbook.yml'
+                    }
+                   
+                  
                 }
             }
         }
