@@ -1,6 +1,6 @@
 - name: Run script on EC2
-  hosts: ec2
+  hosts: ubuntu
   become: yes
   tasks:
     - name: Print hello
-      command: echo "Hello from Ansible on EC2"
+      command: echo "Hello from Ansible on Ubuntu EC2"
